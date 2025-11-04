@@ -57,3 +57,8 @@ function create_block_todo_list_block_init() {
 	}
 }
 add_action( 'init', 'create_block_todo_list_block_init' );
+
+/**
+ * Read the block project folder structure
+ * Link@ https://developer.wordpress.org/block-editor/getting-started/fundamentals/file-structure-of-a-block/
+ */
