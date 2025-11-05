@@ -62,3 +62,8 @@ add_action( 'init', 'create_block_todo_list_block_init' );
  * Read the block project folder structure
  * Link@ https://developer.wordpress.org/block-editor/getting-started/fundamentals/file-structure-of-a-block/
  */
+
+/**
+ * Learn about the wordpress wp-env
+ * Link@ https://developer.wordpress.org/block-editor/getting-started/devenv/get-started-with-wp-env/
+ */
