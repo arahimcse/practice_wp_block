@@ -67,3 +67,8 @@ add_action( 'init', 'create_block_todo_list_block_init' );
  * Learn about the wordpress wp-env
  * Link@ https://developer.wordpress.org/block-editor/getting-started/devenv/get-started-with-wp-env/
  */
+
+/**
+ * Learn block support 
+ * Link@ https://developer.wordpress.org/block-editor/reference-guides/block-api/block-supports/
+ */
