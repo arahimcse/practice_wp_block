@@ -29,10 +29,17 @@ import './editor.scss';
  *
  * @return {Element} Element to render.
  */
+
+/**
+ * 
+ * @returns {currentdate}
+ */
+const currentYear = new Date().getFullYear().toString();
+
 export default function Edit() {
 	return (
-		<p { ...useBlockProps() }>
-			{ __( 'Todo List – hello from the editor!', 'todo-list' ) }
+		<p { ...useBlockProps() }> @
+			{ currentYear }
 		</p>
 	);
 }

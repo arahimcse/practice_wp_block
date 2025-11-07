@@ -8,13 +8,37 @@ return array(
 		'version' => '0.1.0',
 		'title' => 'Todo List',
 		'category' => 'widgets',
-		'icon' => 'smiley',
 		'description' => 'Example block scaffolded with Create Block tool.',
 		'example' => array(
 			
 		),
 		'supports' => array(
-			'html' => false
+			'html' => true,
+			'typography' => array(
+				'fitText' => true,
+				'fontSize' => true,
+				'lineHeight' => true,
+				'textAlign' => true
+			),
+			'color' => array(
+				'background' => true,
+				'text' => true,
+				'link' => true
+			),
+			'layout' => true,
+			'dimensions' => array(
+				'aspectRatio' => true,
+				'minHeight' => true
+			),
+			'shadow' => true,
+			'position' => array(
+				'sticky' => true
+			),
+			'spacing' => array(
+				'margin' => true,
+				'padding' => true
+			),
+			'align' => true
 		),
 		'textdomain' => 'todo-list',
 		'editorScript' => 'file:./index.js',

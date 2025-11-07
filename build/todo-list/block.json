@@ -5,11 +5,35 @@
   "version": "0.1.0",
   "title": "Todo List",
   "category": "widgets",
-  "icon": "smiley",
   "description": "Example block scaffolded with Create Block tool.",
   "example": {},
   "supports": {
-    "html": false
+    "html": true,
+    "typography": {
+      "fitText": true,
+      "fontSize": true,
+      "lineHeight": true,
+      "textAlign": true
+    },
+    "color": {
+      "background": true,
+      "text": true,
+      "link": true
+    },
+    "layout": true,
+    "dimensions": {
+      "aspectRatio": true,
+      "minHeight": true
+    },
+    "shadow": true,
+    "position": {
+      "sticky": true
+    },
+    "spacing": {
+      "margin": true,
+      "padding": true
+    },
+    "align": true
   },
   "textdomain": "todo-list",
   "editorScript": "file:./index.js",
