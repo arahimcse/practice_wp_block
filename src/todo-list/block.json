@@ -7,6 +7,30 @@
 	"category": "widgets",
 	"description": "Example block scaffolded with Create Block tool.",
 	"example": {},
+	"attributes": {
+		"content":{
+			"type":"string",
+			"source": "html",
+			"selector":"p"
+		},
+		"checkboxField":{
+			"type":"boolean",
+			"default":true 
+		},
+		"radioField":{
+			"type":"boolean",
+			"default":"yes"
+		},
+		"textField":{
+			"type":"string"
+		},
+		"toggleField":{
+			"type":"boolean"
+		},
+		"selectField":{
+			"type":"string"
+		}
+	},
 	"supports": {
 		"html": true,
 		"typography": {

@@ -8,7 +8,7 @@
   \**********************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/todo-list","version":"0.1.0","title":"Todo List","category":"widgets","description":"Example block scaffolded with Create Block tool.","example":{},"supports":{"html":true,"typography":{"fitText":true,"fontSize":true,"lineHeight":true,"textAlign":true},"color":{"background":true,"text":true,"link":true},"layout":true,"dimensions":{"aspectRatio":true,"minHeight":true},"shadow":true,"position":{"sticky":true},"spacing":{"margin":true,"padding":true},"align":true},"textdomain":"todo-list","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/todo-list","version":"0.1.0","title":"Todo List","category":"widgets","description":"Example block scaffolded with Create Block tool.","example":{},"attributes":{"content":{"type":"string","source":"html","selector":"p"},"checkboxField":{"type":"boolean","default":true},"radioField":{"type":"boolean","default":"yes"},"textField":{"type":"string"},"toggleField":{"type":"boolean"},"selectField":{"type":"string"}},"supports":{"html":true,"typography":{"fitText":true,"fontSize":true,"lineHeight":true,"textAlign":true},"color":{"background":true,"text":true,"link":true},"layout":true,"dimensions":{"aspectRatio":true,"minHeight":true},"shadow":true,"position":{"sticky":true},"spacing":{"margin":true,"padding":true},"align":true},"textdomain":"todo-list","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
 
 /***/ }),
 
@@ -27,8 +27,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./editor.scss */ "./src/todo-list/editor.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
 /**
  * Retrieves the translation of text.
  *
@@ -66,11 +70,112 @@ __webpack_require__.r(__webpack_exports__);
  * @returns {currentdate}
  */
 
-const currentYear = new Date().getFullYear().toString();
-function Edit() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
-    ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)(),
-    children: [" @", currentYear]
+
+
+
+function Edit({
+  attributes,
+  setAttributes
+}) {
+  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)();
+  const {
+    content,
+    checkboxField,
+    radioField,
+    textField,
+    toggleField,
+    selectField
+  } = attributes;
+  function onChangeContent(newContent) {
+    setAttributes({
+      content: newContent
+    });
+  }
+  function onChangeCheckboxField(newValue) {
+    setAttributes({
+      checkboxField: newValue
+    });
+  }
+  function onChangeRadioField(newValue) {
+    setAttributes({
+      radioField: newValue
+    });
+  }
+  function onChangeTextField(newValue) {
+    setAttributes({
+      textField: newValue
+    });
+  }
+  function onChangeToggleField(newValue) {
+    setAttributes({
+      toggleField: newValue
+    });
+  }
+  function onChangeSelectField(newValue) {
+    setAttributes({
+      selectField: newValue
+    });
+  }
+  console.log(selectField);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Settings'),
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CheckboxControl, {
+          __nextHasNoMarginBottom: true,
+          heading: "Checkbox Field",
+          label: "Tick Me",
+          help: "Additional help text",
+          checked: checkboxField,
+          onChange: onChangeCheckboxField
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RadioControl, {
+          label: "Radio Field",
+          selected: radioField,
+          options: [{
+            label: 'Yes',
+            value: 'yes'
+          }, {
+            label: 'No',
+            value: 'no'
+          }],
+          onChange: onChangeRadioField
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+          __nextHasNoMarginBottom: true,
+          __next40pxDefaultSize: true,
+          label: "Text Field",
+          help: "Additional help text",
+          value: textField,
+          onChange: onChangeTextField
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
+          __nextHasNoMarginBottom: true,
+          label: "Toggle Field",
+          checked: toggleField,
+          onChange: onChangeToggleField
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.SelectControl, {
+          __nextHasNoMarginBottom: true,
+          label: "Select Control",
+          value: selectField,
+          options: [{
+            value: 'a',
+            label: 'Option A'
+          }, {
+            value: 'b',
+            label: 'Option B'
+          }, {
+            value: 'c',
+            label: 'Option C'
+          }],
+          onChange: onChangeSelectField
+        })]
+      })
+    }), /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_5__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {
+      ...blockProps,
+      key: "editable",
+      tagName: "p",
+      onChange: onChangeContent,
+      value: selectField || 'Add content',
+      placeholder: "Enter your text here..."
+    })]
   });
 }
 
@@ -194,10 +299,41 @@ __webpack_require__.r(__webpack_exports__);
  * @return {Element} Element to render.
  */
 
-function save() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-    ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save(),
-    children: 'kkkkkk'
+function save({
+  attributes
+}) {
+  const {
+    content,
+    checkboxField,
+    radioField,
+    textField,
+    toggleField,
+    selectField
+  } = attributes;
+  const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save();
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+    ...blockProps,
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("pre", {
+      ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save(),
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(RichText.Content, {
+        value: content,
+        tagName: "p"
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
+      children: "Inspector Control Fields"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+        children: ["Checkbox Field: ", checkboxField]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+        children: ["Radio Field: ", radioField]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+        children: ["Text Field: ", textField]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+        children: ["Toggle Field: ", toggleField]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+        children: ["Select Field: ", selectField]
+      })]
+    })]
   });
 }
 
@@ -235,6 +371,16 @@ module.exports = window["wp"]["blocks"];
 
 /***/ }),
 
+/***/ "@wordpress/components":
+/*!************************************!*\
+  !*** external ["wp","components"] ***!
+  \************************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["components"];
+
+/***/ }),
+
 /***/ "@wordpress/i18n":
 /*!******************************!*\
   !*** external ["wp","i18n"] ***!
@@ -242,6 +388,16 @@ module.exports = window["wp"]["blocks"];
 /***/ ((module) => {
 
 module.exports = window["wp"]["i18n"];
+
+/***/ }),
+
+/***/ "react":
+/*!************************!*\
+  !*** external "React" ***!
+  \************************/
+/***/ ((module) => {
+
+module.exports = window["React"];
 
 /***/ }),
 

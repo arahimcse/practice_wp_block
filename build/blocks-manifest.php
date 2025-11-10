@@ -12,6 +12,30 @@ return array(
 		'example' => array(
 			
 		),
+		'attributes' => array(
+			'content' => array(
+				'type' => 'string',
+				'source' => 'html',
+				'selector' => 'p'
+			),
+			'checkboxField' => array(
+				'type' => 'boolean',
+				'default' => true
+			),
+			'radioField' => array(
+				'type' => 'boolean',
+				'default' => 'yes'
+			),
+			'textField' => array(
+				'type' => 'string'
+			),
+			'toggleField' => array(
+				'type' => 'boolean'
+			),
+			'selectField' => array(
+				'type' => 'string'
+			)
+		),
 		'supports' => array(
 			'html' => true,
 			'typography' => array(

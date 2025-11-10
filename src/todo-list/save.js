@@ -15,10 +15,31 @@ import { useBlockProps } from '@wordpress/block-editor';
  *
  * @return {Element} Element to render.
  */
-export default function save() {
+export default function save({ attributes }) {
+	const {
+			content,
+			checkboxField,
+			radioField,
+			textField,
+			toggleField,
+			selectField,
+		} = attributes;
+		const blockProps = useBlockProps.save();
 	return (
-		<p { ...useBlockProps.save() }>
-			{ 'kkkkkk' }
-		</p>
+		<div { ...blockProps }>
+			<pre { ...useBlockProps.save() }>
+            <RichText.Content value={ content } tagName="p" />
+        	</pre>
+				
+
+				<h2>Inspector Control Fields</h2>
+				<ul>
+					<li>Checkbox Field: { checkboxField }</li>
+					<li>Radio Field: { radioField }</li>
+					<li>Text Field: { textField }</li>
+					<li>Toggle Field: { toggleField }</li>
+					<li>Select Field: { selectField }</li>
+				</ul>
+			</div>
 	);
 }

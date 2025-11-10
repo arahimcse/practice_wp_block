@@ -11,7 +11,11 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import { 
+	useBlockProps,
+	RichText,
+	InspectorControls
+ } from '@wordpress/block-editor';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -34,12 +38,112 @@ import './editor.scss';
  * 
  * @returns {currentdate}
  */
-const currentYear = new Date().getFullYear().toString();
 
-export default function Edit() {
+import {
+	CheckboxControl,
+	RadioControl,
+	TextControl,
+	ToggleControl,
+	SelectControl,
+	PanelBody,
+} from '@wordpress/components';
+
+export default function Edit({ attributes, setAttributes }) {
+	const blockProps = useBlockProps();
+		const {
+			content,
+			checkboxField,
+			radioField,
+			textField,
+			toggleField,
+			selectField,
+		} = attributes;
+
+		function onChangeContent( newContent ) {
+			setAttributes( { content: newContent } );
+		}
+
+		function onChangeCheckboxField( newValue ) {
+			setAttributes( { checkboxField: newValue } );
+		}
+
+		function onChangeRadioField( newValue ) {
+			setAttributes( { radioField: newValue } );
+		}
+
+		function onChangeTextField( newValue ) {
+			setAttributes( { textField: newValue } );
+		}
+
+		function onChangeToggleField( newValue ) {
+			setAttributes( { toggleField: newValue } );
+		}
+
+		function onChangeSelectField( newValue ) {
+			setAttributes( { selectField: newValue } );
+		}
+		console.log(selectField);
 	return (
-		<p { ...useBlockProps() }> @
-			{ currentYear }
-		</p>
+		<>
+				<InspectorControls>
+					<PanelBody title={ __( 'Settings' ) }>
+						<CheckboxControl
+							__nextHasNoMarginBottom
+							heading='Checkbox Field'
+							label="Tick Me"
+							help="Additional help text"
+							checked={ checkboxField }
+							onChange={ onChangeCheckboxField }
+						/>
+
+						<RadioControl
+							label="Radio Field"
+							selected={ radioField }
+							options={ [
+								{ label: 'Yes', value: 'yes' },
+								{ label: 'No', value: 'no' },
+							] }
+							onChange={ onChangeRadioField }
+						/>
+
+						<TextControl
+							__nextHasNoMarginBottom
+							__next40pxDefaultSize
+							label="Text Field"
+							help="Additional help text"
+							value={ textField }
+							onChange={ onChangeTextField }
+						/>
+
+						<ToggleControl
+							__nextHasNoMarginBottom
+							label="Toggle Field"
+							checked={ toggleField }
+							onChange={ onChangeToggleField }
+						/>
+
+						<SelectControl
+							__nextHasNoMarginBottom
+							label="Select Control"
+							value={ selectField }
+							options={ [
+								{ value: 'a', label: 'Option A' },
+								{ value: 'b', label: 'Option B' },
+								{ value: 'c', label: 'Option C' },
+							] }
+							onChange={ onChangeSelectField }
+						/>
+					</PanelBody>
+				</InspectorControls>
+
+				<RichText
+					{ ...blockProps }
+					key="editable"
+					tagName="p"
+					onChange={ onChangeContent }
+					value={ selectField  || 'Add content'}
+					placeholder="Enter your text here..."
+				/>
+			</>
 	);
 }
